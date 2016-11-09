@@ -10,7 +10,7 @@ class ShipmentsController < ApplicationController
 
 
 
-  def cost
+  def cost(zip)
 
     # Rails.logger.debug(params[:shipment])
     # Rails.logger.debug(params[:shipment][:destination_address])
