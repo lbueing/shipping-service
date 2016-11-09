@@ -8,6 +8,20 @@ class ShipmentsController < ApplicationController
   # ACTIVESHIPPING_UPS_ORIGIN_NAME = ENV["ACTIVESHIPPING_UPS_ORIGIN_NAME"]
 
   def cost
+    Rails.logger.debug(params[:shipment])
+    Rails.logger.debug(params[:shipment][:destination_address])
+    Rails.logger.debug(params[:shipment][:destination_address])
+
+
+    # {
+    # 	"shipment": { "destination_address": { "city": "Seattle", "state": "WA", "zip": "98122"},
+    # 	"origin_address": { "city": "Seattle", "state": "WA", "zip": "98122"},
+    # 	"packages": [{"weight": "100", "dimensions": [15,10, 4.5], "units": "imperial"}]
+    #
+    #
+    # 	}
+    # }
+
     packages = ActiveShipping::Package.new(3*16, [6, 8, 10], units: :imperial)
 
 

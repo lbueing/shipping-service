@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  
-  get 'shipments/cost'
+
+  post 'shipments/cost'
+
+
+
+  # is origin and other things going to be part of this?
+
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
