@@ -10,7 +10,7 @@ class ShipmentsController < ApplicationController
 
 
 
-  def cost(zip)
+  def cost
 
     # Rails.logger.debug(params[:shipment])
     # Rails.logger.debug(params[:shipment][:destination_address])
@@ -30,16 +30,16 @@ class ShipmentsController < ApplicationController
 
 
     origin = ActiveShipping::Location.new(
-        country: 'US',
-        state: 'WA',
-        city: 'Seattle',
+        country: params[:origin_country],
+        state: params[:origin_state],
+        city: params[:origin_city],
         zip: params[:origin_zip])
 
     destination = ActiveShipping::Location.new(
-        country: 'US',
-        state: 'KS',
-        city: 'Topeka',
-        zip: '66601')
+        country: params[:dest_country],
+        state: params[:dest_state],
+        city: params[:dest_city],
+        zip: params[:dest_zip])
 
     ups = ActiveShipping::UPS.new(login: ACTIVESHIPPING_UPS_LOGIN, password: ACTIVESHIPPING_UPS_PASSWORD, key: ACTIVESHIPPING_UPS_KEY)
     response = ups.find_rates(origin, destination, packages)

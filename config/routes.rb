@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'shipments/cost'
+  get 'shipments/cost' => 'shipments#cost', as: 'shipments'
 
 
 
