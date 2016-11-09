@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+
 gem 'rails-api'
 gem 'active_shipping'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'simplecov'
+  gem 'dotenv-rails'
+  gem 'better_errors'
 end
 
 group :development do

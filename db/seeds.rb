@@ -4,22 +4,17 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-users = [
-  {
-    name: "wallace"
-    zip: "61455"
-  }
-  {
-    name: "gertrude"
-    zip: "98029"
-  }
-  {
-    name: "maevis"
-    zip: "62005"
-  }
-]
+package = ActiveShipping::Package.new(3*16, [6, 8, 10], units: :imperial)
 
-users.each do |user|
-  User.create(user)
-end
+
+origin = ActiveShipping::Location.create(
+    country: 'US',
+    state: 'WA',
+    city: 'Seattle',
+    zip: '98125')
+
+destination = ActiveShipping::Location.create(
+    country: 'US'
+    state: 'KS'
+    city: 'Topeka'
+    zip: '66601')
