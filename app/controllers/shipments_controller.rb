@@ -8,9 +8,9 @@ class ShipmentsController < ApplicationController
   # ACTIVESHIPPING_UPS_ORIGIN_NAME = ENV["ACTIVESHIPPING_UPS_ORIGIN_NAME"]
 
   def cost
-    Rails.logger.debug(params[:shipment])
-    Rails.logger.debug(params[:shipment][:destination_address])
-    Rails.logger.debug(params[:shipment][:destination_address])
+    # Rails.logger.debug(params[:shipment])
+    # Rails.logger.debug(params[:shipment][:destination_address])
+    # Rails.logger.debug(params[:shipment][:destination_address])
 
 
     # {

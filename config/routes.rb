@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post 'shipments/cost'
+  get 'shipments/cost'
 
 
 
