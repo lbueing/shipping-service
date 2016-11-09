@@ -7,21 +7,24 @@ class ShipmentsController < ApplicationController
   # ACTIVESHIPPING_UPS_ORIGIN_ACCOUNT = ENV["ACTIVESHIPPING_UPS_ORIGIN_ACCOUNT"]
   # ACTIVESHIPPING_UPS_ORIGIN_NAME = ENV["ACTIVESHIPPING_UPS_ORIGIN_NAME"]
 
+
+
+
   def cost
     packages = ActiveShipping::Package.new(3*16, [6, 8, 10], units: :imperial)
 
 
     origin = ActiveShipping::Location.new(
-        country: 'US',
-        state: 'WA',
-        city: 'Seattle',
-        zip: '98125')
+        country: params[:origin_country],
+        state: params[:origin_state],
+        city: params[:origin_city],
+        zip: params[:origin_zip])
 
     destination = ActiveShipping::Location.new(
-        country: 'US',
-        state: 'KS',
-        city: 'Topeka',
-        zip: '66601')
+        country: params[:dest_country],
+        state: params[:dest_state],
+        city: params[:dest_city],
+        zip: params[:dest_zip])
 
     ups = ActiveShipping::UPS.new(login: ACTIVESHIPPING_UPS_LOGIN, password: ACTIVESHIPPING_UPS_PASSWORD, key: ACTIVESHIPPING_UPS_KEY)
     response = ups.find_rates(origin, destination, packages)
