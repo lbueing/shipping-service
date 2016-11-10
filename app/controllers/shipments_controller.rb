@@ -39,6 +39,7 @@ class ShipmentsController < ApplicationController
 
   def ups
     shipping_info
+    ActiveShipping::UPS.logger = Logger.new(STDOUT)
 
     ups = ActiveShipping::UPS.new(login: ACTIVESHIPPING_UPS_LOGIN, password: ACTIVESHIPPING_UPS_PASSWORD, key: ACTIVESHIPPING_UPS_KEY)
     response = ups.find_rates(@origin, @destination, @packages)
@@ -48,6 +49,7 @@ class ShipmentsController < ApplicationController
 
   def usps
     shipping_info
+    ActiveShipping::USPS.logger = Logger.new(STDOUT)
 
     usps = ActiveShipping::USPS.new(login: ACTIVESHIPPING_USPS_LOGIN )
     response = usps.find_rates(@origin, @destination, @packages)
